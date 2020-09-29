@@ -7,7 +7,8 @@ namespace Snake_Ladder_Game
         static void Main(string[] args)
         {
             Player noob1 = new Player();
-            int position = 0; //initialization
+            int position = 0;
+            int numberOfTimesDiceRolled = 0; //initialization
             Console.WriteLine("Player is at position : " + noob1.getPosition());
 
             while (position != 100)
@@ -21,7 +22,11 @@ namespace Snake_Ladder_Game
                 position = noob1.getPosition();
 
                 Console.WriteLine("Player is at position : " + position);
+
+                numberOfTimesDiceRolled = numberOfTimesDiceRolled +1;
             }
+
+            Console.WriteLine("\nPlayer rolled the dice " + numberOfTimesDiceRolled + " times to win the game.");
 
         }
     }
