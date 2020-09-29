@@ -13,6 +13,11 @@ namespace Snake_Ladder_Game
             int value = noob1.rollDie();
 
             Console.WriteLine("Dice showing : " + value);
+            
+            noob1.setOption();
+
+            Console.WriteLine("Player is now at : "+ noob1.getPosition());
+
 
         }
     }
