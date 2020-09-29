@@ -52,7 +52,13 @@ namespace Snake_Ladder_Game
                     break;
                 case LADDER:
                     Console.WriteLine("Ladder encountered ");
-                    this.position = this.position + valueOnDie;
+                    int temp = this.position + valueOnDie;
+
+                    if(temp <= 100)
+                    {
+                        this.position = temp; 
+                    }
+
                     break;
                 case NO_PLAY:
                     Console.WriteLine("No play encountered");
