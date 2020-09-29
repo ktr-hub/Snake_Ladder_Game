@@ -43,6 +43,12 @@ namespace Snake_Ladder_Game
                 case SNAKE:
                     Console.WriteLine("Snake encountered ");
                     this.position = this.position - valueOnDie;
+                    
+                    if (this.position < 0)
+                    {
+                        this.position = 0;
+                    }
+
                     break;
                 case LADDER:
                     Console.WriteLine("Ladder encountered ");
