@@ -6,27 +6,45 @@ namespace Snake_Ladder_Game
     {
         static void Main(string[] args)
         {
-            Player noob1 = new Player();
-            int position = 0;
-            int numberOfTimesDiceRolled = 0; //initialization
-            Console.WriteLine("Player is at position : " + noob1.getPosition());
+            Player []noob = new Player[2];
+            noob[0] = new Player();
+            noob[1] = new Player();
 
-            while (position != 100)
+            int [] position = new int[2];
+            position[0] = noob[0].getPosition();
+            position[1] = noob[1].getPosition();
+
+            int diceSwitch=0,option=1;
+            int [] numberOfTimesDiceRolled = new int[2];
+            
+            Console.WriteLine("Player 1 is at position : " + position[0]);
+            Console.WriteLine("Player 2 is at position : " + position[1]);
+
+            while (position[0] != 100 && position[1]!=100)
             {
-                int valueOnDie = noob1.rollDie();
+                if (option != 1 && diceSwitch == 0)
+                {
+                    diceSwitch = 1;
+                }
+                else if (option != 1 && diceSwitch == 1)
+                {
+                    diceSwitch = 0;
+                }
 
-                Console.WriteLine("\nDice showing : " + valueOnDie);
+                int ValueOnDie = noob[diceSwitch].rollDie();
 
-                noob1.setOption();
+                Console.WriteLine("\nPlayer "+ (diceSwitch+1) +" Dice showing : " + ValueOnDie);
 
-                position = noob1.getPosition();
+                option = noob[diceSwitch].setOption();
 
-                Console.WriteLine("Player is at position : " + position);
+                position[diceSwitch] = noob[diceSwitch].getPosition();
 
-                numberOfTimesDiceRolled = numberOfTimesDiceRolled +1;
+                Console.WriteLine("Player "+(diceSwitch+1)+ " is at position : " + position[diceSwitch]);
+                numberOfTimesDiceRolled[diceSwitch] = numberOfTimesDiceRolled[diceSwitch] + 1;
+
             }
 
-            Console.WriteLine("\nPlayer rolled the dice " + numberOfTimesDiceRolled + " times to win the game.");
+            Console.WriteLine("\nPlayer " + (diceSwitch+1) +" rolled the dice " + numberOfTimesDiceRolled[diceSwitch] + " times to win the game.");
 
         }
     }

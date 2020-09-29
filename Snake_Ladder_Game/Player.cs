@@ -34,7 +34,7 @@ namespace Snake_Ladder_Game
             return valueOnDie;
         }
 
-        public void setOption()
+        public int setOption()
         {
             Random random = new Random();
             int option = random.Next(0, 3);
@@ -48,7 +48,6 @@ namespace Snake_Ladder_Game
                     {
                         this.position = 0;
                     }
-
                     break;
                 case LADDER:
                     Console.WriteLine("Ladder encountered ");
@@ -58,12 +57,12 @@ namespace Snake_Ladder_Game
                     {
                         this.position = temp; 
                     }
-
                     break;
                 case NO_PLAY:
                     Console.WriteLine("No play encountered");
                     break;
             }
+            return option;
         }
 
     }
