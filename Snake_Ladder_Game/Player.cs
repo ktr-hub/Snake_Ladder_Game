@@ -23,5 +23,12 @@ namespace Snake_Ladder_Game
             return this.position;
         }
 
+        public int rollDie()
+        {
+            Random dice = new Random();
+            int value = dice.Next(1, 7);
+            return value;
+        }
+
     }
 }
