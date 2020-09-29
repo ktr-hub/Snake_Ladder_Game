@@ -6,7 +6,9 @@ namespace Snake_Ladder_Game
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to the Snake & Ladder Game");
+            Player noob1 = new Player();
+
+            Console.WriteLine("Player is at position : " + noob1.getPosition());
         }
     }
 }
